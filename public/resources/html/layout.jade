@@ -1,0 +1,29 @@
+!!!
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    link(rel='stylesheet', href='/resources/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/resources/css/custom.css')
+  body
+    div.topbar
+      div.fill
+        div.container
+          ul.nav.nav-pills
+            li(class= nav[0])
+              a(href='/new_query') Новый запрос
+            li(class= nav[1])
+              a(href='/queries') Запросы
+            li(class= nav[2])
+              a(href='#') Отчёт
+    div.container
+      div.content
+        div.page-header
+          h1!=header
+        div!= content
+    div.footer
+      p &copy; SPBSTU DATABASE
+
+  script(src = "resources/scripts/jquery.js")
+  script(src='/resources/bootstrap/js/bootstrap.js')
+  script(src = "resources/scripts/script.js")

@@ -1,0 +1,20 @@
+.row
+  .span12{:style => "overflow: auto"}
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          - keys.each do |key|
+            - if key != "id"
+              %th= key
+          %th Результат
+      - i = -1
+      - results.each do |row|
+        - i += 1
+        %tr
+          - row.each do |key, val|
+            - if val.class == BigDecimal
+              %td= val.to_s('F')
+            - elsif key != "id"
+              %td= val
+          - word = success[i] == 1 ? 'Выполнен' : success[i] == 0 ? 'Нет' : 'В процессе'
+          %td= word

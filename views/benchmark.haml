@@ -1,0 +1,14 @@
+.row
+  .span12{:style => "overflow: auto"}
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Команда
+          %th 1000
+          %th 10 000
+          %th 100 000
+      - results.each do |key, times|
+        %tr
+          %th= key
+          - times.each do |val|
+            %td= val

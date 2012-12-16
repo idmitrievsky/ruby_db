@@ -1,0 +1,59 @@
+.row
+  .span12{:style => "overflow: auto"}
+    .page-header
+      %h2{:align => 'center'} Удовлетворённые
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          - keys.each do |key|
+            %th= key
+      - results.each do |row|
+        %tr
+          - row.each do |key, val|
+            - if val.class == BigDecimal
+              %td= val.to_s('F')
+            - else
+              %td= val
+- sorted.each do |key, val|
+  .row
+    .span12{:style => "overflow: auto"}
+      .page-header
+        %h2{:align => 'center'}= key
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            - bad_keys.each do |key|
+              %th= key
+        - val.each do |row|
+          %tr
+            - row.each do |key, val|
+              %td= val
+
+
+
+/ .row
+/   .span12{:style => "overflow: auto"}
+/     .page-header
+/       %h2{:align => 'center'} Удовлетворённые
+/     %table.table.table-striped.table-bordered
+/       %thead
+/         %tr
+/           - keys.each do |key|
+/             %th= key
+/       - results.each do |row|
+/         %tr
+/           - row.each do |key, val|
+/             %td= val
+
+/     %table.table.table-striped.table-bordered
+/       %thead
+/         %tr
+/           - bad_keys.each do |key|
+/             %th= key
+/       - sorted.each do |key, val|
+/         %tr
+/           %th{:align => 'center'}= key     
+/         - val.each do |row|
+/           %tr
+/             - row.each do |k, v|
+/               %td= v

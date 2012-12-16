@@ -1,0 +1,26 @@
+form#new-query(method="post", action="new_query_handler")
+  fieldset
+    legend Все поля обязательны
+    label Направление
+    select(name='direction_name')
+        //- option 1
+        //- option 2
+        for val in directions
+            option=val.name
+    label Тема исследований
+    input(type="text", placeholder="Состав воздуха", name='research_theme')
+    label ФИО руководителя
+    input(type="text", placeholder="Кулаков Иван Петрович", name='head_name')
+    label Количество участников
+    input(type="number", placeholder="", name='contributors_number')
+    label Запрашиваемая сумма
+    input(type="number", placeholder="", name='amount_requested')
+    label Организация
+    input(type="text", placeholder="", name='organisation')
+    label Адрес
+    input(type="text", placeholder="Россия, ...", name='address')
+    //span.help-block Example block-level help text here.
+    //- label.checkbox
+    //-   input(type="checkbox")
+    //-   | Check me out
+    .form-actions: button.btn#new-query-submit(type="submit") Отправить запрос

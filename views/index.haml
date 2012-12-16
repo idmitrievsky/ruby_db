@@ -1,0 +1,21 @@
+.row
+  .span12{:style => "overflow: auto"}
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          - keys.each do |key|
+            - if key != "id"
+              %th= key
+          %th Действия
+      - results.each do |row|
+        %tr
+          - row.each do |key, val|
+            - if val.class == BigDecimal
+              %td= val.to_s('F')
+            - elsif key != "id"
+              %td= val
+            
+          %td
+            .btn-group
+              .btn.btn-small.btn-success{:id => "btn#{row['id']}", :class => "sub"} Одобрить
+              .btn.btn-small.btn-danger{:id => "btn#{row['id']}"} Отклонить

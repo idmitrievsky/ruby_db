@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %title= title
+    %meta{:charset => 'utf-8'}
+    %link{:rel => 'stylesheet', :href => 'stylesheets/bootstrap/css/bootstrap.css'}
+    %link{:rel => 'stylesheet', :href => 'stylesheets/custom.css'}
+  %body
+    .topbar
+      .fill
+        .container
+          .rightxt
+            %div= "#{stats[0].to_s('F')} р. всего</br>#{stats[1].to_s('F')} р. осталось</br>#{stats[2]}"
+          %ul.nav.nav-pills
+            %li{:class => nav[0]}
+              %a{:href => '/new_query'} Новый запрос
+            %li{:class => nav[1]}
+              %a{:href => '/choose'} Рассмотреть
+            %li{:class => nav[2]}
+              %a{:href => '/report'} Отчёт
+            %li{:class => nav[3]}
+              %a{:href => '/grants'} Гранты
+            %li{:class => nav[4]}
+              %a{:href => '/queries'} Запросы
+    .container
+      .content
+        .page-header
+          %h1= header
+        %div= yield
+    .footer
+      %p &copy; SPBSTU DATABASE
+
+  %script{:src => "javascript/jquery.js"}
+  %script{:src => "stylesheets/bootstrap/js/bootstrap.js"}
+  %script{:src => "javascript/script.js"}

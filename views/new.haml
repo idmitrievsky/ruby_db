@@ -1,0 +1,22 @@
+%form#new-query{:method => "post", :action => "new_query_handler"}
+  %fieldset
+    %legend Все поля обязательны
+    %label Направление
+    %select{:name => 'direction_name'}
+      - directions.each do |direction|
+        %option= direction
+    %label Тема исследований
+    %input{:type => "text", :placeholder => "Состав воздуха", :name => 'research_theme', :required => "required"}
+    %label ФИО руководителя
+    %input{:type => "text", :placeholder => "Кулаков Иван Петрович", :name => 'head_name', :required => "required"}
+    %label Количество участников
+    %input{:type => "number", :placeholder => "", :name => 'contributors_number', :required => "required"}
+    %label Запрашиваемая сумма
+    %input{:type => "number", :placeholder => "", :name =>'amount_requested', :required => "required"}
+    %label Организация
+    %input{:type => "text", :placeholder => "", :name => 'organisation', :required => "required"}
+    %label Адрес
+    %input{:type => "text", :placeholder => "Россия, ...", :name => 'address', :required => "required"}
+    
+    .form-actions
+      %button.btn#new-query-submit{:type => "submit"} Отправить запрос

@@ -1,0 +1,13 @@
+.row
+  .span12{:style => "overflow: auto"}
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Тест
+          %th Запрос
+      - queries.each do |key, val|
+        %tr
+          %td= key
+          %td{:class => key.gsub(" ","") }= val
+          %td
+            .btn.btn-small.btn-success{:id => key.gsub(" ",""), :class => "test"} Тест

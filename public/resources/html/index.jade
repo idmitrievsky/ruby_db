@@ -1,0 +1,28 @@
+div.row
+  div.span12(style="overflow: auto")
+    table.table.table-striped.table-bordered
+      thead
+        row = rows[0]
+          tr
+            for val, key in row
+              if key != 'id'
+                th=key
+            th Действия
+      for row in rows
+        tr
+          for val,key in row
+            if key != 'id'
+              td=val
+          td
+            .btn-group
+              .btn.btn-small.btn-success(id = "btn" + row['id']) Одобрить
+              .btn.btn-small.btn-danger(id = "btn" + row['id']) Отклонить
+
+            //- .btn-group
+            //-   button.btn.btn-small.btn-success Action
+            //-     button.btn.btn-small.btn-danger.dropdown-toggle(data-toggle='dropdown')
+            //-       span.caret
+            //-     ul.dropdown-menu
+            //-       li: a(href='/queries') Queries
+            //-       li: a(href='#') ASS
+            //-       li: a(href='#') BOOBIES
